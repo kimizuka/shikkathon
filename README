@@ -1,0 +1,9 @@
+❶ https://developers.line.biz/ja/ にログイン
+❷ プロバイダを作成
+❸ 新規チャンネル「Messaging API」を作成
+❹ Messaging API設定のQRコードから友達に追加
+❺ 応答設定を「チャット 👉 OFF」「あいさつメッセージ 👉 ON」「Webhook 👉 ON」「応答メッセージ 👉 OFF」に変更
+❻ 「チャネル基本設定」から「チェンネルシークレット」を.envにメモ
+❼ 「Messaging API設定」から「チャネルアクセストークン」を発行して.envにメモ
+❽ https://dashboard.ngrok.com/get-started/your-authtoken にログイン
+❾ authtokenを.envにメモ
