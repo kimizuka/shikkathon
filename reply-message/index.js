@@ -18,10 +18,33 @@ async function handleLineWebHook(event) {
     return Promise.resolve(null);
   }
 
-  return client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: event.message.text
-  });
+  console.log(event.message.text);
+  if (event.message.text === '寝る') {
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: 'おやすみなさい... Zzzz... 🫎'
+    });
+  } else if (event.message.text === '起きる') {
+    return client.replyMessage(event.replyToken, [{
+      type: 'text',
+      text: 'おはようございます！いろんな動物が罠にかかったようです！'
+    },
+    {
+      type: 'image',
+      originalContentUrl: 'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kimizuka/20231203/20231203111157.png',
+      previewImageUrl: 'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kimizuka/20231203/20231203111157.png'
+    },
+    {
+      type: 'text',
+      text: '🫎 × 2 🐗 × 1 🦊 × 1'
+    },
+  ]);
+  } else {
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: '🫎'
+    });
+  }
 }
 
 const app = express();
@@ -49,5 +72,5 @@ app.listen(PORT);
     authtoken: NGROK_AUTH_TOKEN
   });
 
-  console.log(url);
+  console.log(`${ url }/webhook`);
 })();
